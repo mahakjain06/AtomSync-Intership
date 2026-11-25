@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_sensor_readings
+    description: "Cleaned and standardized sensor readings"
+    columns:
+      - name: SHIPMENT_ID
+        data_tests:
+          - not_null
+      - name: TIMESTAMP
+        data_tests:
+          - not_null
+
+  - name: shipment_summary
+    description: "Shipment-level sensor analytics summary"
+    columns:
+      - name: SHIPMENT_ID
+        data_tests:
+          - unique
+          - not_null
+      - name: TOTAL_READINGS
+        data_tests:
+          - not_null
+      - name: AVG_TEMPERATURE_C
+        data_tests:
+          - not_null
+      - name: AVG_HUMIDITY_PERCENT
+        data_tests:
+          - not_null
